@@ -1,0 +1,51 @@
+theme = "catppuccin_frappe"
+
+[editor]
+rulers = [88, 120]
+mouse = true
+true-color = true
+cursorline = true
+gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+
+[editor.file-picker]
+hidden = false
+git-ignore = true
+
+[editor.indent-guides]
+render = true
+character = "╎"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+display-messages = true
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[keys.normal]
+H = "goto_line_start"
+L = "goto_line_end"
+J = "page_down"
+K = "page_up"
+"S-left" = "goto_line_start"
+"S-right" = "goto_line_end"
+"S-down" = "page_down"
+"S-up" = "page_up"
+g = {e = ["goto_last_line", "goto_line_end"]}
+
+[keys.select]
+"S-left" = "goto_line_start"
+"S-right" = "goto_line_end"
+"S-down" = "page_down"
+"S-up" = "page_up"
+g = {e = ["goto_last_line", "goto_line_end"]}

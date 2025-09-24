@@ -1,0 +1,65 @@
+[[language]]
+name = "python"
+auto-format = true
+language-servers = ["pyright"]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language.formatter]
+command = "black"
+args = ["--line-length", "88", "--quiet", "-"]
+
+[[language]]
+name = "rust"
+auto-format = true
+
+[[language]]
+name = "typescript"
+auto-format = true
+formatter = { command = 'prettier', args = [
+  "--parser",
+  "typescript",
+  "--printWidith",
+  "80",
+] }
+language-servers = ["ts"]
+
+[language-server.ts]
+command = "typescript-language-server"
+config = { format = { "semicolons" = "insert", "insertSpaceBeforeFunctionParenthesis" = true } }
+
+[[language]]
+name = "html"
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+
+[[language]]
+name = "json"
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "json"] }
+
+[[language]]
+name = "css"
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+
+[[language]]
+name = "javascript"
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+
+[[language]]
+name = "markdown"
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+
+[[language]]
+name = "yaml"
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-"] }
