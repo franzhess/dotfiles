@@ -15,7 +15,7 @@ config.window_padding = {
   top = '0.5cell',
   bottom = '0cell'
 }
-config.default_cursor_style = 'SteadyBlock'
+config.default_cursor_style = 'BlinkingUnderline'
 
 
 config.window_background_opacity = 0.96
