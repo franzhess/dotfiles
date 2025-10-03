@@ -1,3 +1,23 @@
+#####
+# SIMPLE COMPLETION LANGUAGE SERVER
+#####
+
+[language-server.scls]
+command = "simple-completion-language-server"
+
+[language-server.scls.config]
+max_completion_items = 100           # set max completion results len for each group: words, snippets, unicode-input
+feature_words = true                 # enable completion by word
+feature_snippets = true              # enable snippets
+snippets_first = true                # completions will return before snippets by default
+snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for example text `xsq|` become `x^2|` when snippet `sq` has body `^2`
+feature_unicode_input = false        # enable "unicode input"
+feature_paths = false                # enable path completion
+feature_citations = false            # enable citation completion (only on `citation` feature enabled)
+
+#####
+# PYTHON
+#####
 [[language]]
 name = "python"
 scope = "source.python"
@@ -28,45 +48,90 @@ roots = [
   ".venv/",
 ]
 comment-token = "#"
-language-servers = [
-  { name = "pyright", except-features = [
-    "diagnostics",
-  ] },
-  "ruff",
-]
+language-servers = ["basedpyright", "ruff", "scls"]
 indent = { tab-width = 4, unit = "    " }
+formatter = { command = "ruff", args = ["format", "-"] }
 auto-format = true
 
 [language-server.ruff]
 command = "ruff"
 args = ["server", "-q", "--preview"]
+preview = true
+show-fixes = true
+include = ["*.py"]
+fix = true
 
-[language-server.pyright]
-command = "pyright-langserver"
+[language-server.ruff.config.settings]
+lineLength = 88
+logLevel = "debug"
+
+[language-server.ruff.analyze]
+detect-string-imports = true
+
+[language-server.ruff.lint.pydocstyle]
+convention = "google"
+
+[language-server.ruff.config.settings.lint]
+select = [
+  "E",
+  "F",
+  "W",
+  "B",
+  "I",
+  "RUF",
+  "N",
+  "SIM",
+  "LOG",
+  "ERA",
+  "W",
+  "D",
+  "UP",
+  "ANN",
+  "ASYNC",
+  "S",
+  "RET",
+  "TCH",
+  "ARG",
+  "PTH",
+  "DOC",
+]
+preview = true
+
+
+[language-server.ruff.config.settings.format]
+preview = true
+quote-style = "double"
+docstring-code-format = true
+indent-style = "space"
+skip-magic-trailing-comma = true
+
+
+[language-server.basedpyright]
+command = "basedpyright-langserver"
 args = ["--stdio"]
+except-features = ["format"]        # we use ruff for formatting
 
-[language-server.pyright.config]
-python.analysis.venvPath = "."
-python.analysis.venv = ".venv"
-python.analysis.lint = true
-python.analysis.inlayHint.enable = true
-python.analysis.autoSearchPaths = true
-python.analysis.diagnosticMode = "workspace"
-python.analysis.useLibraryCodeForType = true
-python.analysis.logLevel = "Error"
-python.analysis.typeCheckingMode = "off"
-python.analysis.autoImoprtCompletion = true
-python.analysis.reportOptionalSubscript = false
-python.analysis.reportOptionalMemberAccess = false
+[language-server.basedpyright.config.basedpyright.analysis]
+autoSearchPaths = true
+diagnosticMode = "workspace"
+useLibraryCodeForTypes = true
+autoImportCompletions = true
+typeCheckingMode = "standard"
+disableTaggedHints = true
 
-[language.formatter]
-command = "ruff"
-args = ["--line-length", "88", "--quiet", "-"]
 
+#####
+# RUST
+#####
 [[language]]
 name = "rust"
 auto-format = true
+language-servers = ["rust-analyzer", "scls"]
 
+
+#####
+# TYPESCRIPT
+##### 
 [[language]]
 name = "typescript"
 auto-format = true
@@ -76,43 +141,105 @@ formatter = { command = 'prettier', args = [
   "--printWidith",
   "88",
 ] }
-language-servers = ["ts"]
+language-servers = ["ts", "scls"]
+
+[[language]]
+name = 'tsx'
+auto-format = true
+formatter = { command = 'prettier', args = [
+  "--parser",
+  "typescript",
+  "--printWidith",
+  "88",
+] }
+language-servers = ["ts", "scls"]
+
 
 [language-server.ts]
 command = "typescript-language-server"
 config = { format = { "semicolons" = "insert", "insertSpaceBeforeFunctionParenthesis" = true } }
 
+#####
+# TERRAFORM
+#####
+[[language]]
+name = 'hcl'
+auto-format = true
+language-servers = ['terraform-ls', 'scls']
+
+
+#####
+# HASKELL
+#####
+[[language]]
+name = 'haskell'
+auto-format = true
+language-servers = ['haskell-language-server', 'scls']
+
+#####
+# HTML
+#####
 [[language]]
 name = "html"
 auto-format = true
 formatter = { command = 'prettier', args = ["--parser", "html"] }
+language-servers = ['vscode-html-language-server', 'scls']
 
+
+#####
+# JSON
+#####
 [[language]]
 name = "json"
 auto-format = true
 formatter = { command = 'prettier', args = ["--parser", "json"] }
+language-servers = ['vscode-json-language-server', 'scls']
 
+
+#####
+# CSS
+#####
 [[language]]
 name = "css"
 auto-format = true
 formatter = { command = 'prettier', args = ["--parser", "css"] }
+language-servers = ['vscode-css-language-server', 'scls']
 
+
+#####
+# JAVASCRIPT
+#####
 [[language]]
 name = "javascript"
 auto-format = true
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+language-servers = ["ts", "scls"]
 
+
+#####
+# MARKDOWN
+#####
 [[language]]
 name = "markdown"
 auto-format = true
 formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+language-servers = ["markdown-oxide", "scls"]
 
+
+#####
+# YAML
+#####
 [[language]]
 name = "yaml"
 auto-format = true
 formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+language-servers = ['yaml-language-server', 'scls']
 
+
+#####
+# TOML
+#####
 [[language]]
 name = "toml"
 auto-format = true
-formatter = { command = "taplo", args = ["fmt", "-"] }
+language-servers = ["taplo", "scls"]

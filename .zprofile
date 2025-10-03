@@ -37,7 +37,7 @@ export FZF_ALT_C_OPTS="--preview 'eza --icons=always --tree --color=always {} | 
 export FZF_TMUX_OPTS=" -p90%,70% "
 
 #####
-# PYENV, NVM, PNPM, CARGO
+# PYENV, NVM, PNPM, CARGO (RUST), GHCUP (HASKELL)
 #####
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -55,3 +55,6 @@ case ":$PATH:" in
 esac
 
 source "$HOME/.cargo/env"
+
+[ -f "/Users/franz/.ghcup/env" ] && . "/Users/franz/.ghcup/env" # ghcup-env
+

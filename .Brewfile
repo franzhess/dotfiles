@@ -80,6 +80,10 @@ brew "helix"
 brew "bash-language-server"
 # Markdown LSP
 brew "markdown-oxide"
+# Language Server for Yaml Files
+brew "yaml-language-server"
+# Language servers for HTML, CSS, JavaScript, and JSON extracted from vscode
+brew "vscode-langservers-extracted"
 
 #####
 # RUST
@@ -102,7 +106,7 @@ brew "uv"
 # Python version management
 brew "pyenv"
 # Static type checker for Python
-brew "pyright"
+brew "basedpyright"
 # Extremely fast Python linter, written in Rust
 brew "ruff"
 
