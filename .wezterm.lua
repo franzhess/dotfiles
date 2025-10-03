@@ -36,11 +36,22 @@ config.keys = {
   { key = 'd', mods = 'CMD', action = action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
   { key = 'k', mods = 'CMD', action = action.ClearScrollback 'ScrollbackAndViewport' },
   { key = 'w', mods = 'CMD', action = action.CloseCurrentPane { confirm = false } },
-  { key = 'w', mods = 'CMD|SHIFT', action = action.CloseCurrentTab { confirm = false } },
   { key = 'LeftArrow', mods = 'CMD', action = action.SendKey { key = 'Home' } },
   { key = 'RightArrow', mods = 'CMD', action = action.SendKey { key = 'End' } },
-  { key = 'p', mods = 'CMD|SHIFT', action = action.ActivateCommandPalette },
+  { key = 'n', mods = 'CMD|ALT', action = action.ActivateWindowRelative(1) },
+  { key = 'p', mods = 'CMD|ALT', action = action.ActivateWindowRelative(-1)},
+  { key = 'RightArrow', mods = 'CMD|ALT', action = action.ActivateWindowRelative(1) },
+  { key = 'LeftArrow', mods = 'CMD|ALT', action = action.ActivateWindowRelative(-1)},
 }
+
+for i = 1, 8 do
+  -- CMD+ALT + number to activate that window
+    table.insert(config.keys, {
+      key = tostring(i),
+      mods = 'CMD|ALT',
+      action = action.ActivateWindow(i - 1),
+    })
+end
 
 local mux = wezterm.mux
 wezterm.on("gui-startup", function(cmd)
