@@ -1,22 +1,33 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local action = wezterm.action
 
-config.color_scheme = "Catppuccin Frappe" -- or Mocha, Macchiato, Latte
-config.font = wezterm.font {
-  family = 'JetBrains Mono',
-  weight = 'Medium',
-}
+config.color_scheme = "nord"
+config.font = wezterm.font({
+	family = "JetBrains Mono",
+	weight = "Medium",
+})
 config.font_size = 14
 
 config.window_padding = {
-  left = '0.5cell',
-  right = '0.5cell',
-  top = '0.5cell',
-  bottom = '0cell'
+	left = "0.5cell",
+	right = "0.5cell",
+	top = "0.5cell",
+	bottom = "0cell",
 }
-config.default_cursor_style = 'BlinkingUnderline'
 
+config.window_frame = {
+	border_left_width = "0.5cell",
+	border_right_width = "0.5cell",
+	border_bottom_height = "0.25cell",
+	border_top_height = "0.25cell",
+	border_left_color = "#3B4252",
+	border_right_color = "#3B4252",
+	border_bottom_color = "#3B4252",
+	border_top_color = "#3B4252",
+}
+
+config.default_cursor_style = "BlinkingUnderline"
 
 config.window_background_opacity = 0.96
 config.macos_window_background_blur = 20
@@ -32,31 +43,18 @@ config.window_close_confirmation = "NeverPrompt"
 config.automatically_reload_config = true
 
 config.keys = {
-  { key = 'd', mods = 'CMD|SHIFT', action = action.SplitVertical { domain = 'CurrentPaneDomain' } },
-  { key = 'd', mods = 'CMD', action = action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-  { key = 'k', mods = 'CMD', action = action.ClearScrollback 'ScrollbackAndViewport' },
-  { key = 'w', mods = 'CMD', action = action.CloseCurrentPane { confirm = false } },
-  { key = 'LeftArrow', mods = 'CMD', action = action.SendKey { key = 'Home' } },
-  { key = 'RightArrow', mods = 'CMD', action = action.SendKey { key = 'End' } },
-  { key = 'n', mods = 'CMD|ALT', action = action.ActivateWindowRelative(1) },
-  { key = 'p', mods = 'CMD|ALT', action = action.ActivateWindowRelative(-1)},
-  { key = 'RightArrow', mods = 'CMD|ALT', action = action.ActivateWindowRelative(1) },
-  { key = 'LeftArrow', mods = 'CMD|ALT', action = action.ActivateWindowRelative(-1)},
+	{ key = "d", mods = "CMD|SHIFT", action = action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "d", mods = "CMD", action = action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "k", mods = "CMD", action = action.ClearScrollback("ScrollbackAndViewport") },
+	{ key = "w", mods = "CMD", action = action.CloseCurrentPane({ confirm = false }) },
+	{ key = "LeftArrow", mods = "CMD", action = action.SendKey({ key = "Home" }) },
+	{ key = "RightArrow", mods = "CMD", action = action.SendKey({ key = "End" }) },
 }
-
-for i = 1, 8 do
-  -- CMD+ALT + number to activate that window
-    table.insert(config.keys, {
-      key = tostring(i),
-      mods = 'CMD|ALT',
-      action = action.ActivateWindow(i - 1),
-    })
-end
 
 local mux = wezterm.mux
 wezterm.on("gui-startup", function(cmd)
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():maximize()
+	local tab, pane, window = mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
 end)
 
 return config
