@@ -2,6 +2,8 @@
 # TERMINAL
 #####
 
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
@@ -46,8 +48,6 @@ cask "font-hack-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 # Internet file retriever
 brew "wget"
-# Syntax-highlighting pager for git and diff output
-brew "git-delta"
 
 
 #####
@@ -56,6 +56,10 @@ brew "git-delta"
 
 # Distributed revision control system
 brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# GitHub command-line tool
+brew gh
 # Also known as: gnupg@2.4, gpg, gpg2
 brew "gnupg"
 # Defines a standard way of committing rules and communicating it
@@ -76,6 +80,8 @@ brew "gemini-cli"
 
 # Post-modern modal text editor
 brew "helix"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 # Language Server for Bash
 brew "bash-language-server"
 # Markdown LSP
