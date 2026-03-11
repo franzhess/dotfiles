@@ -5,7 +5,7 @@ format = """
 [ ](fg:crust bg:red)\
 [](fg:red bg:peach)\
 $directory\
-[ ](bg:base fg:peach)\
+[ ](fg:peach)\
 $cmd_duration\
 $fill\
 [](yellow)\
@@ -22,14 +22,14 @@ $kotlin\
 $haskell\
 $python\
 $terraform\
-[](fg:green bg:lavender)\
+[](fg:green bg:sky)\
 $time\
-[](fg:lavender)\
+[](fg:sky)\
 $line_break\
 $character
 """
 
-palette = 'catppuccin_frappe'
+palette = 'nord'
 
 add_newline = true
 
@@ -115,7 +115,7 @@ format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
 disabled = false
 time_format = "%R"
 style = "bg:lavender"
-format = '[[  $time ](fg:crust bg:lavender)]($style)'
+format = '[[  $time ](fg:crust bg:sky)]($style)'
 
 [character]
 disabled = false
@@ -133,6 +133,24 @@ style = "bg:lavender"
 disabled = false
 show_notifications = true
 min_time_to_notify = 45000
+
+[palettes.nord]
+crust = "#2e3440" #nord0
+base = "#3b4252" #nord1
+mantle = "#434c5e" #nord2
+surface0 = "#4c566a" #nord3
+text ="#d8dee9" #nord4
+subtext0 = "#e5e9f0" #nord5
+subtext1 = "#eceff4" #nord6
+teal = "#8fbcbb" #nord7
+sky = "#88c0d0" #nord8
+sapphire = "#81a1c1" #nord9
+blue = "#5e81ac" #nord10
+red = "#bf616a" #nord11
+peach = "#d08770" #nord12
+yellow = "#ebcb8b" #nord13
+green = "#a3be8c" #nord14
+lavender = "#b48ead" #nord15
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
