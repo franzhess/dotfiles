@@ -59,7 +59,7 @@ brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # GitHub command-line tool
-brew gh
+brew "gh"
 # Also known as: gnupg@2.4, gpg, gpg2
 brew "gnupg"
 # Defines a standard way of committing rules and communicating it
@@ -75,11 +75,10 @@ cask "docker-desktop"
 # Embeddable SQL OLAP Database Management System
 brew "duckdb"
 
-# Interact with Google Gemini AI models from the command-line
-brew "gemini-cli"
-
 # Post-modern modal text editor
 brew "helix"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
 # Language Server for Bash
