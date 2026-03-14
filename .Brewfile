@@ -54,6 +54,8 @@ brew "wget"
 # DEVELOPMENT
 #####
 
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
@@ -134,6 +136,8 @@ brew "prettier"
 # DEVOPS
 #####
 
+# Also known as: awscli@2
+brew "awscli"
 # Terraform
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"

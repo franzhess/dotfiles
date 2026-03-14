@@ -1,3 +1,6 @@
+# direnv
+eval "$(direnv hook zsh)"
+
 # Starship
 eval "$(starship init zsh)"
 
