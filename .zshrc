@@ -27,6 +27,13 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# Home and End for easier command line editing
+bindkey '^[OH' beginning-of-line
+bindkey '^[[H' beginning-of-line
+
+bindkey '^[OF' end-of-line
+bindkey '^[[F' end-of-line
+
 #####
 # ALIAS
 #####
@@ -55,6 +62,9 @@ alias lg="lazygit"
 
 # lazydocker
 alias ld="lazydocker"
+
+# open code
+alias oc="opencode"
 
 source ~/.zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

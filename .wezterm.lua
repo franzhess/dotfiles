@@ -16,17 +16,6 @@ config.window_padding = {
 	bottom = "0cell",
 }
 
-config.window_frame = {
-	border_left_width = "0.5cell",
-	border_right_width = "0.5cell",
-	border_bottom_height = "0.25cell",
-	border_top_height = "0.25cell",
-	border_left_color = "#3B4252",
-	border_right_color = "#3B4252",
-	border_bottom_color = "#3B4252",
-	border_top_color = "#3B4252",
-}
-
 config.default_cursor_style = "BlinkingUnderline"
 
 config.window_background_opacity = 0.96
@@ -49,6 +38,8 @@ config.keys = {
 	{ key = "w", mods = "CMD", action = action.CloseCurrentPane({ confirm = false }) },
 	{ key = "LeftArrow", mods = "CMD", action = action.SendKey({ key = "Home" }) },
 	{ key = "RightArrow", mods = "CMD", action = action.SendKey({ key = "End" }) },
+	{ key = "UpArrow", mods = "CMD", action = action.SendKey({ key = "PageUp" }) },
+	{ key = "DownArrow", mods = "CMD", action = action.SendKey({ key = "PageDown" }) },
 }
 
 local mux = wezterm.mux

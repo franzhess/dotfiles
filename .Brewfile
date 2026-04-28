@@ -48,7 +48,8 @@ cask "font-hack-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 # Internet file retriever
 brew "wget"
-
+# Menu bar application that displays the CPU speed limit due to thermal issues
+cask "hot"
 
 #####
 # DEVELOPMENT
@@ -91,6 +92,14 @@ brew "markdown-oxide"
 brew "yaml-language-server"
 # Language servers for HTML, CSS, JavaScript, and JSON extracted from vscode
 brew "vscode-langservers-extracted"
+# AI code review CLI
+cask "coderabbit"
+# AI coding agent, built for the terminal
+tap "anomalyco/tap"
+brew "anomalyco/tap/opencode"
+# On-device Apple FoundationModels CLI and OpenAI-compatible server
+tap "arthur-ficial/tap"
+brew "arthur-ficial/tap/apfel"
 
 #####
 # RUST
@@ -132,11 +141,17 @@ brew "typescript-language-server"
 # Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
 brew "prettier" 
 
+####
+# GO
+####
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+
 #####
 # DEVOPS
 #####
 
-# Also known as: awscli@2
+# Official Amazon AWS command-line interface
 brew "awscli"
 # Terraform
 tap "hashicorp/tap"
@@ -150,4 +165,21 @@ brew "prowler"
 brew "terraform-docs"
 # Terraform Language Server
 brew "terraform-ls"
+
+#####
+# VSCODE
+#####
+vscode "arcticicestudio.nord-visual-studio-code"
+vscode "github.copilot-chat"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-azuretools.vscode-azureterraform"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.vscode-typescript-next"
+vscode "pjmiravalle.terraform-advanced-syntax-highlighting"
+vscode "rust-lang.rust-analyzer"
 
