@@ -138,7 +138,7 @@ auto-format = true
 formatter = { command = 'prettier', args = [
   "--parser",
   "typescript",
-  "--printWidith",
+  "--print-width",
   "88",
 ] }
 language-servers = ["ts", "scls"]
@@ -149,7 +149,7 @@ auto-format = true
 formatter = { command = 'prettier', args = [
   "--parser",
   "typescript",
-  "--printWidith",
+  "--print-width",
   "88",
 ] }
 language-servers = ["ts", "scls"]

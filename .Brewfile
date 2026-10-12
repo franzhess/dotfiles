@@ -2,8 +2,6 @@
 # TERMINAL
 #####
 
-# AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
@@ -92,11 +90,9 @@ brew "markdown-oxide"
 brew "yaml-language-server"
 # Language servers for HTML, CSS, JavaScript, and JSON extracted from vscode
 brew "vscode-langservers-extracted"
-# AI code review CLI
-cask "coderabbit"
 # AI coding agent, built for the terminal
 tap "anomalyco/tap"
-brew "anomalyco/tap/opencode"
+brew "anomalyco/tap/opencode-v2"
 # On-device Apple FoundationModels CLI and OpenAI-compatible server
 tap "arthur-ficial/tap"
 brew "arthur-ficial/tap/apfel"
@@ -105,8 +101,8 @@ brew "arthur-ficial/tap/apfel"
 # RUST
 #####
 # Cargo Lambda is a Cargo subcommand to help you work with AWS Lambda.
-tap "cargo-lambda/cargo-lambda"
-brew "cargo-lambda/cargo-lambda/cargo-lambda"
+tap "cargo-lambda/tap"
+brew "cargo-lambda/tap/cargo-lambda"
 # TOML toolkit written in Rust
 brew "taplo"
 
@@ -156,9 +152,6 @@ brew "awscli"
 # Terraform
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"
-# Localstack cli packaged using pyinstaller
-tap "localstack/tap"
-brew "localstack/tap/localstack-cli"
 # Tool for cloud security assessments, audits, incident response, and more
 brew "prowler"
 # Tool to generate documentation from Terraform modules
@@ -170,7 +163,6 @@ brew "terraform-ls"
 # VSCODE
 #####
 vscode "arcticicestudio.nord-visual-studio-code"
-vscode "github.copilot-chat"
 vscode "mechatroner.rainbow-csv"
 vscode "ms-azuretools.vscode-azureterraform"
 vscode "ms-azuretools.vscode-containers"
@@ -182,4 +174,3 @@ vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode.vscode-typescript-next"
 vscode "pjmiravalle.terraform-advanced-syntax-highlighting"
 vscode "rust-lang.rust-analyzer"
-
