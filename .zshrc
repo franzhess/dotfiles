@@ -64,7 +64,7 @@ alias lg="lazygit"
 alias ld="lazydocker"
 
 # open code
-alias oc="opencode"
+alias oc="caffeinate -i opencode"
 
 source ~/.zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
